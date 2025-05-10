@@ -50,7 +50,7 @@ class HelpDesk():
         return embeddings
 
     def get_llm(self):
-        llm = OpenAI()
+        llm = OpenAI() # model_name='gpt-4o-mini'
         return llm
 
     def get_retrieval_qa(self):
@@ -86,10 +86,10 @@ class HelpDesk():
             distinct_sources_str = "  \n- ".join(distinct_sources)
 
         if len(distinct_sources) == 1:
-            return f"Voici la source qui pourrait t'être utile :  \n- {distinct_sources_str}"
+            return f"Here is the source that might be helpful:  \n- {distinct_sources_str}"
 
         elif len(distinct_sources) > 1:
-            return f"Voici {len(distinct_sources)} sources qui pourraient t'être utiles :  \n- {distinct_sources_str}"
+            return f"Here are {len(distinct_sources)} sources that might be helpful:  \n- {distinct_sources_str}"
 
         else:
-            return "Désolé je n'ai trouvé aucune ressource pour répondre à ta question"
+            return "Sorry, I couldn't find any resources to answer your question"

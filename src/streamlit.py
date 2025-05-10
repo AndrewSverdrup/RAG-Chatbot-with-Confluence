@@ -19,13 +19,13 @@ model = get_model()
 
 # Streamlit
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "Comment puis-je vous aider ?"}]
+    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
 
-if prompt := st.chat_input("Comment puis-je vous aider ?"):
+if prompt := st.chat_input("How can I help you?"):
     # Add prompt
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
